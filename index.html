@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debayan Roy - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0a192f;
+      --secondary: #172a45;
+      --accent: #64ffda;
+      --text-primary: #e6f1ff;
+      --text-secondary: #8892b0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--primary);
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(100, 255, 218, 0.1) 0%, rgba(10, 25, 47, 0.9) 100%);
+      z-index: -1;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 1.2rem;
+      background: rgba(23, 42, 69, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    nav a i {
+      font-size: 0.9rem;
+    }
+
+    main {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 80px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 70%;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .card {
+      background: var(--secondary);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 3px solid var(--accent);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h3 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card p, .card li {
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .card ul {
+      padding-left: 1.5rem;
+    }
+
+    .card li {
+      margin-bottom: 0.3rem;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .skill-tag {
+      background: rgba(100, 255, 218, 0.1);
+      color: var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid var(--accent);
+    }
+
+    /* New Stats Section Styles */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat-card {
+      background: rgba(100, 255, 218, 0.05);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      background: rgba(100, 255, 218, 0.1);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .thoughts-container {
+      margin-top: 2rem;
+    }
+
+    .thought-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--accent);
+    }
+
+    .thought-title {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--secondary);
+      margin-top: 3rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .social-links a {
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      header p {
+        font-size: 1.1rem;
+      }
+      
+      nav {
+        gap: 1rem;
+        padding: 1rem;
+      }
+      
+      section {
+        padding: 1rem 0;
+      }
+      
+      .card {
+        padding: 1.2rem;
+      }
+      
+      .stats-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Debayan Roy</h1>
+    <p>Startup Enthusiast | Finance Expert | IIM Bangalore Student</p>
+  </header>
+
+  <nav>
+    <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+    <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+    <a href="#languages"><i class="fas fa-language"></i> Languages</a>
+    <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
+    <a href="#startup"><i class="fas fa-rocket"></i> Startups</a>
+    <a href="#stats"><i class="fas fa-chart-bar"></i> Stats</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+  </nav>
+
+  <main>
+    <section id="education">
+      <h2>Education</h2>
+      <div class="card">
+        <h3>Indian Institute of Management, Bangalore</h3>
+        <p><strong>Degree:</strong> BBA in Digital Business & Entrepreneurship</p>
+        <p><strong>Duration:</strong> 2024 - Present</p>
+        <p><strong>Focus:</strong> Startup Development, Financial Management, Digital Technologies</p>
+      </div>
+      
+      <div class="card">
+        <h3>Lord Buddha Public School</h3>
+        <p><strong>12th Grade:</strong> Secured 3rd position in class</p>
+        <p><strong>Key Achievements:</strong> Academic excellence in Commerce stream with focus on Business Studies and Economics</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="card">
+        <h3>Core Competencies</h3>
+        <div class="skills-container">
+          <span class="skill-tag">Financial Trading</span>
+          <span class="skill-tag">Market Analysis</span>
+          <span class="skill-tag">Web Development</span>
+          <span class="skill-tag">Business Strategy</span>
+          <span class="skill-tag">Startup Development</span>
+          <span class="skill-tag">E-commerce</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h3>Technical Skills</h3>
+        <div class="skills-container">
+          <span class="skill-tag">HTML/CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Financial Modeling</span>
+          <span class="skill-tag">Data Analysis</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="languages">
+      <h2>Languages</h2>
+      <div class="card">
+        <h3>Fluent Languages</h3>
+        <div class="skills-container">
+          <span class="skill-tag">Hindi</span>
+          <span class="skill-tag">English</span>
+          <span class="skill-tag">Bengali</span>
+          <span class="skill-tag">Spanish</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="card">
+        <h3>Interactive Resume Website</h3>
+        <p>Developed a personal portfolio website showcasing skills, education, and projects with responsive design.</p>
+        <ul>
+          <li>Built with HTML5, CSS3, and JavaScript</li>
+          <li>Mobile-responsive design</li>
+          <li>Interactive elements for better user engagement</li>
+        </ul>
+      </div>
+      
+      <div class="card">
+        <h3>Meesho Consultancy Project</h3>
+        <p>Consulted for Meesho (Indian social commerce platform) to optimize their seller onboarding process.</p>
+        <ul>
+          <li>Analyzed existing seller acquisition funnel</li>
+          <li>Proposed improvements to increase conversion rates</li>
+          <li>Developed training materials for new sellers</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="startup">
+      <h2>Startup Ventures</h2>
+      <div class="card">
+        <h3>Merchant Trading Company</h3>
+        <p>Founded a trading company specializing in commodity markets with focus on strategic investments.</p>
+        <ul>
+          <li>Developed proprietary trading strategies</li>
+          <li>Managed portfolio risk and returns</li>
+          <li>Consistently achieved above-market returns</li>
+        </ul>
+      </div>
+      
+      <div class="card">
+        <h3>Online Imitation Jewellery Store</h3>
+        <p>Launched and scaled an e-commerce business specializing in fashion jewelry.</p>
+        <ul>
+          <li>Managed end-to-end operations from sourcing to customer delivery</li>
+          <li>Implemented digital marketing strategies that increased sales by 200%</li>
+          <li>Built supplier network across multiple regions</li>
+        </ul>
+      </div>
+    </section>
+    
+    <section id="stats">
+      <h2>Thoughts & Stats</h2>
+      <div class="card">
+        <h3>My Journey in Numbers</h3>
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-number">1000+</div>
+            <div class="stat-label">Hours of coding</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Cups of coffee</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Projects completed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Successful startups</div>
+          </div>
+        </div>
+
+        <div class="thoughts-container">
+          <h3>Current Thoughts</h3>
+          <div class="thought-card">
+            <div class="thought-title">
+              <i class="fas fa-lightbulb"></i>
+              <span>On Productivity</span>
+            </div>
+            <p>"Quality focus time beats long working hours. My 4-hour deep work sessions with Pomodoro technique yield better results than 10-hour distracted work."</p>
+          </div>
+          <div class="thought-card">
+            <div class="thought-title">
+              <i class="fas fa-chart-line"></i>
+              <span>On Trading</span>
+            </div>
+            <p>"The market is a psychology game. My best trades come from patience and pattern recognition, not from chasing every opportunity."</p>
+          </div>
+          <div class="thought-card">
+            <div class="thought-title">
+              <i class="fas fa-rocket"></i>
+              <span>On Startups</span>
+            </div>
+            <p>"Validation before scaling. I've learned that talking to 100 potential customers is more valuable than building features no one wants."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="contact">
+      <h2>Get In Touch</h2>
+      <div class="card">
+        <p>I'm always interested in hearing about new opportunities, collaborations, or just chatting about startups and finance.</p>
+        <p>Feel free to reach out!</p>
+        <div class="social-links">
+          <a href="mailto:debayan.roy24@iimb.ac.in" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/debayan-roy" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://github.com" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Debayan Roy. All rights reserved.</p>
+    <p id="datetime"></p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Update copyright year
+      document.getElementById("year").textContent = new Date().getFullYear();
+      
+      // Update last modified date
+      document.getElementById("datetime").textContent = `Last Updated: ${new Date().toLocaleString()}`;
+      
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
