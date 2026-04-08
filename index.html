@@ -2,182 +2,166 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Debayan Roy | Portfolio</title>
-  <style>
-    :root {
-      --bg-1: #f7efe3;
-      --bg-2: #e8f1ff;
-      --card: #ffffff;
-      --ink: #1b1f24;
-      --muted: #475467;
-      --accent: #0a6f5a;
-      --accent-2: #084f40;
-      --ring: rgba(10, 111, 90, 0.2);
-      --shadow: 0 18px 45px rgba(26, 39, 79, 0.12);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(255, 209, 102, 0.35), transparent 35%),
-        radial-gradient(circle at 85% 10%, rgba(0, 114, 245, 0.22), transparent 40%),
-        linear-gradient(140deg, var(--bg-1), var(--bg-2));
-      font-family: "Segoe UI", "Trebuchet MS", sans-serif;
-      color: var(--ink);
-      padding: 24px;
-    }
-
-    .hero {
-      width: min(920px, 100%);
-      background: var(--card);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 28px;
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 28px;
-      align-items: center;
-      animation: rise 0.8s ease-out;
-      border: 1px solid rgba(10, 111, 90, 0.08);
-    }
-
-    .photo-wrap {
-      justify-self: center;
-      position: relative;
-    }
-
-    .photo-wrap::after {
-      content: "";
-      position: absolute;
-      inset: -10px;
-      border-radius: 999px;
-      border: 2px solid var(--ring);
-    }
-
-    .photo {
-      width: 240px;
-      height: 240px;
-      border-radius: 999px;
-      object-fit: cover;
-      border: 4px solid #fff;
-      display: block;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2rem, 3.6vw, 2.8rem);
-      line-height: 1.05;
-      letter-spacing: 0.2px;
-    }
-
-    .tagline {
-      margin: 12px 0 8px;
-      font-size: 1.05rem;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    .edu {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.65;
-    }
-
-    .buttons {
-      margin-top: 22px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border-radius: 12px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-      padding: 12px 18px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 10px 22px rgba(8, 79, 64, 0.26);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 24px rgba(8, 79, 64, 0.3);
-    }
-
-    .btn-secondary {
-      color: var(--accent-2);
-      border-color: rgba(8, 79, 64, 0.25);
-      background: #f8fffc;
-    }
-
-    .btn-secondary:hover {
-      background: #ecfef7;
-      transform: translateY(-1px);
-    }
-
-    @keyframes rise {
-      from {
-        opacity: 0;
-        transform: translateY(14px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 760px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 24px 18px;
-      }
-
-      .buttons {
-        justify-content: center;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Debayan Roy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <section class="hero">
-    <div class="photo-wrap">
-      <img class="photo" src="./profile.jpeg" alt="Debayan Roy profile picture" />
+
+<!-- HERO -->
+<section class="hero fade-in">
+  <img src="profile.jpg" class="hero-img" />
+
+  <h1>👋 Hey, I'm <span>Debayan Roy</span></h1>
+
+  <p class="hero-sub">
+    Automobile Sales Executive · Digital Marketing & E‑commerce Growth (Entry‑Level)
+  </p>
+
+  <p class="hero-desc">
+    BBA (Digital Business & Entrepreneurship) student at IIM Bangalore with strong
+    hands‑on exposure to customer acquisition, lead handling, negotiation, and
+    digital growth execution through founding ventures.
+  </p>
+
+  <div class="hero-buttons">
+    <a href="debayan-roy-resume.pdf" class="btn primary" download>Download CV</a>
+    <a href="#contact" class="btn">Let's Talk</a>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="section fade-in">
+  <h2>Building sales with clarity & conversion focus</h2>
+  <p>
+    2nd‑year BBA (Digital Business & Entrepreneurship) student at IIM Bangalore (CGPA:
+    <strong>8.7</strong>) with hands‑on experience in B2C & B2B sales, negotiation,
+    lead conversion, and early‑stage digital marketing execution.
+  </p>
+  <p>
+    I’ve handled customer inquiries, delivered product explanations and demos,
+    coordinated follow‑ups, and closed sales across D2C and B2B ventures — supported
+    by fundamentals of performance marketing, Shopify web setup, and marketplace
+    exposure (Amazon / Flipkart).
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section class="section fade-in">
+  <h2>What I work with</h2>
+
+  <div class="tags">
+    <span>Walk‑in & Lead Handling</span>
+    <span>Customer Needs Assessment</span>
+    <span>Product Presentation & Demo</span>
+    <span>Test Drive Coordination</span>
+    <span>Negotiation & Closing</span>
+    <span>Customer Follow‑ups</span>
+    <span>Accessories / Warranty Upsell (Learning)</span>
+    <span>Meta & Google Ads Concepts</span>
+    <span>Lead Generation (Online & Offline)</span>
+    <span>Amazon / Flipkart Basics</span>
+    <span>Shopify Setup & Updates</span>
+    <span>Excel Reporting</span>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section fade-in">
+  <h2>Experience</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <h3>Founder — Merchant Labs</h3>
+      <p class="meta">Digital Business Consultancy · 2026 — Present · Remote (Gurgaon)</p>
+      <ul>
+        <li>Deliver 360° digital growth support for retail brands combining web setup and e‑commerce marketing.</li>
+        <li>Support Amazon, Flipkart, and Shopify operations to improve conversion and lead flow.</li>
+        <li>Track campaign performance, optimize creatives and offers, and report insights.</li>
+        <li>Coordinate web, content, and marketing delivery to build repeatable growth systems.</li>
+      </ul>
     </div>
-    <div>
-      <h1>Debayan Roy</h1>
-      <p class="tagline">BBA DBE 2ND YEAR STUDENT</p>
-      <p class="edu">IIT MADRAS BS DATA SCIENCE - FIRST YEAR</p>
-      <div class="buttons">
-        <a class="btn btn-primary" href="./Debayan_Roy_Amazon_Resume_GustiLeder.pdf" download>
-          Download Resume
-        </a>
-        <a class="btn btn-secondary" href="./Debayan_Roy_Amazon_Resume_GustiLeder.pdf" target="_blank" rel="noopener noreferrer">
-          View Resume
-        </a>
-      </div>
+
+    <div class="timeline-item">
+      <h3>Co‑founder & CEO — Grameen GreenBox</h3>
+      <p class="meta">D2C Organic Staples · Jun 2025 — Present · Kolkata</p>
+      <ul>
+        <li>Owned customer acquisition: handled inquiries and converted leads into orders.</li>
+        <li>Built brand website and improved CX through simplified ordering and communication.</li>
+        <li>Managed vendors, negotiated pricing, and ensured quality fulfillment.</li>
+        <li>Prepared brand for Amazon & Flipkart onboarding.</li>
+      </ul>
     </div>
-  </section>
+
+    <div class="timeline-item">
+      <h3>Founder & CEO — Merchant Trading Company</h3>
+      <p class="meta">Jewelry (B2B) · Nov 2024 — May 2025 · Kolkata</p>
+      <ul>
+        <li>Handled B2B selling: outreach, pitching, quotations, follow‑ups, and closing.</li>
+        <li>Built a showcase website to generate inbound inquiries.</li>
+        <li>Negotiated with suppliers and ensured quality control.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Data Analytics Trainee — MedTourEasy</h3>
+      <p class="meta">Dec 2024</p>
+      <ul>
+        <li>Completed 4‑week traineeship analyzing chemical components.</li>
+        <li>Delivered structured reporting using spreadsheets.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section fade-in">
+  <h2>Projects</h2>
+
+  <ul>
+    <li><a href="https://www.grameengreenbox.in/" target="_blank">Grameen GreenBox Website</a></li>
+    <li><a href="https://davidthedopeboy.github.io/MERCHANT.TRADINGCOMPANY/" target="_blank">Merchant Trading Company Website</a></li>
+    <li><a href="https://davidthedopeboy.github.io/Resume.Debayan/" target="_blank">Resume / Portfolio Website</a></li>
+  </ul>
+</section>
+
+<!-- EDUCATION -->
+<section class="section fade-in">
+  <h2>Education</h2>
+  <p><strong>IIM Bangalore</strong> — BBA (Digital Business & Entrepreneurship)<br>
+     2024 – 2027 · CGPA: 8.7</p>
+
+  <p><strong>Lord Buddha Public School, Kota</strong> — Class XII (PCB) · 2023 · 65.5%</p>
+  <p><strong>Thakurnagar High School</strong> — Class X · 2021 · 83.85%</p>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section fade-in">
+  <h2>Certifications</h2>
+  <ul>
+    <li>McKinsey Forward Program — Graduate</li>
+    <li>Traineeship Certificate — MedTourEasy (Dec 2024)</li>
+  </ul>
+</section>
+
+<!-- CONTACT -->
+<footer id="contact" class="fade-in">
+  <h2>Let’s connect</h2>
+
+  <div class="socials">
+    <a href="https://in.linkedin.com/in/debayan-roy-252556231" target="_blank">LinkedIn</a>
+    <a href="https://davidthedopeboy.github.io/Resume.Debayan/" target="_blank">Portfolio</a>
+    <a href="https://www.grameengreenbox.in/" target="_blank">Website</a>
+    <a href="mailto:verifiedroy@gmail.com">Email</a>
+  </div>
+
+  <p class="copy">© 2026 Debayan Roy</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
