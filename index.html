@@ -1,167 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Debayan Roy</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debayan Roy - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #051022;
+      --secondary: #0e1a35;
+      --accent: #1ad2ff;
+      --text-primary: #edf6ff;
+      --text-secondary: #9bb7d8;
+      --border: rgba(26, 210, 255, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--primary);
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(100, 255, 218, 0.1) 0%, rgba(10, 25, 47, 0.9) 100%);
+      z-index: -1;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 1.2rem;
+      background: rgba(23, 42, 69, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    nav a i {
+      font-size: 0.9rem;
+    }
+
+    main {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 80px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 70%;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .card {
+      background: var(--secondary);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 3px solid var(--accent);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h3 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card p, .card li {
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .card ul {
+      padding-left: 1.5rem;
+    }
+
+    .card li {
+      margin-bottom: 0.3rem;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .skill-tag {
+      background: rgba(100, 255, 218, 0.1);
+      color: var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--secondary);
+      margin-top: 3rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .social-links a {
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.95rem 1.8rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, rgba(26, 210, 255, 0.15), rgba(26, 210, 255, 0.35));
+      color: var(--text-primary);
+      border-color: rgba(26, 210, 255, 0.35);
+      box-shadow: 0 12px 30px rgba(26, 210, 255, 0.12);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 35px rgba(26, 210, 255, 0.18);
+    }
+
+    .header-actions {
+      margin-top: 1.8rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      header p {
+        font-size: 1.1rem;
+      }
+      
+      nav {
+        gap: 1rem;
+        padding: 1rem;
+      }
+      
+      section {
+        padding: 1rem 0;
+      }
+      
+      .card {
+        padding: 1.2rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-<!-- HERO -->
-<section class="hero fade-in">
-  <img src="profile.jpg" class="hero-img" />
-
-  <h1>👋 Hey, I'm <span>Debayan Roy</span></h1>
-
-  <p class="hero-sub">
-    Automobile Sales Executive · Digital Marketing & E‑commerce Growth (Entry‑Level)
-  </p>
-
-  <p class="hero-desc">
-    BBA (Digital Business & Entrepreneurship) student at IIM Bangalore with strong
-    hands‑on exposure to customer acquisition, lead handling, negotiation, and
-    digital growth execution through founding ventures.
-  </p>
-
-  <div class="hero-buttons">
-    <a href="debayan-roy-resume.pdf" class="btn primary" download>Download CV</a>
-    <a href="#contact" class="btn">Let's Talk</a>
-  </div>
-</section>
-
-<!-- SUMMARY -->
-<section class="section fade-in">
-  <h2>Building sales with clarity & conversion focus</h2>
-  <p>
-    2nd‑year BBA (Digital Business & Entrepreneurship) student at IIM Bangalore (CGPA:
-    <strong>8.7</strong>) with hands‑on experience in B2C & B2B sales, negotiation,
-    lead conversion, and early‑stage digital marketing execution.
-  </p>
-  <p>
-    I’ve handled customer inquiries, delivered product explanations and demos,
-    coordinated follow‑ups, and closed sales across D2C and B2B ventures — supported
-    by fundamentals of performance marketing, Shopify web setup, and marketplace
-    exposure (Amazon / Flipkart).
-  </p>
-</section>
-
-<!-- SKILLS -->
-<section class="section fade-in">
-  <h2>What I work with</h2>
-
-  <div class="tags">
-    <span>Walk‑in & Lead Handling</span>
-    <span>Customer Needs Assessment</span>
-    <span>Product Presentation & Demo</span>
-    <span>Test Drive Coordination</span>
-    <span>Negotiation & Closing</span>
-    <span>Customer Follow‑ups</span>
-    <span>Accessories / Warranty Upsell (Learning)</span>
-    <span>Meta & Google Ads Concepts</span>
-    <span>Lead Generation (Online & Offline)</span>
-    <span>Amazon / Flipkart Basics</span>
-    <span>Shopify Setup & Updates</span>
-    <span>Excel Reporting</span>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="section fade-in">
-  <h2>Experience</h2>
-
-  <div class="timeline">
-
-    <div class="timeline-item">
-      <h3>Founder — Merchant Labs</h3>
-      <p class="meta">Digital Business Consultancy · 2026 — Present · Remote (Gurgaon)</p>
-      <ul>
-        <li>Deliver 360° digital growth support for retail brands combining web setup and e‑commerce marketing.</li>
-        <li>Support Amazon, Flipkart, and Shopify operations to improve conversion and lead flow.</li>
-        <li>Track campaign performance, optimize creatives and offers, and report insights.</li>
-        <li>Coordinate web, content, and marketing delivery to build repeatable growth systems.</li>
-      </ul>
+  <header>
+    <h1>Debayan Roy</h1>
+    <p>IIT Madras BS Data Science & Applications 1st Year | BBA DBE 2nd Year</p>
+    <div class="header-actions">
+      <a class="btn btn-primary" href="file:///C:/Users/USER/Downloads/Documents/Debayan%20BBA%20Resume.pdf" target="_blank" rel="noreferrer">Download Resume</a>
     </div>
+  </header>
 
-    <div class="timeline-item">
-      <h3>Co‑founder & CEO — Grameen GreenBox</h3>
-      <p class="meta">D2C Organic Staples · Jun 2025 — Present · Kolkata</p>
-      <ul>
-        <li>Owned customer acquisition: handled inquiries and converted leads into orders.</li>
-        <li>Built brand website and improved CX through simplified ordering and communication.</li>
-        <li>Managed vendors, negotiated pricing, and ensured quality fulfillment.</li>
-        <li>Prepared brand for Amazon & Flipkart onboarding.</li>
-      </ul>
-    </div>
+  <nav>
+    <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+    <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+    <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
+    <a href="#startup"><i class="fas fa-rocket"></i> Startups</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+  </nav>
 
-    <div class="timeline-item">
-      <h3>Founder & CEO — Merchant Trading Company</h3>
-      <p class="meta">Jewelry (B2B) · Nov 2024 — May 2025 · Kolkata</p>
-      <ul>
-        <li>Handled B2B selling: outreach, pitching, quotations, follow‑ups, and closing.</li>
-        <li>Built a showcase website to generate inbound inquiries.</li>
-        <li>Negotiated with suppliers and ensured quality control.</li>
-      </ul>
-    </div>
+  <main>
+    <section id="education">
+      <h2>Education</h2>
+      <div class="card">
+        <h3>Indian Institute of Management, Bangalore</h3>
+        <p><strong>Degree:</strong> BBA in Digital Business & Entrepreneurship</p>
+        <p><strong>Duration:</strong> 2024 - Present</p>
+        <p><strong>Focus:</strong> Startup Development, Financial Management, Digital Technologies</p>
+      </div>
+      
+      <div class="card">
+        <h3>Lord Buddha Public School</h3>
+        <p><strong>12th Grade:</strong> Secured 3rd position in class</p>
+        <p><strong>Key Achievements:</strong> Academic excellence in Commerce stream with focus on Business Studies and Economics</p>
+      </div>
+    </section>
 
-    <div class="timeline-item">
-      <h3>Data Analytics Trainee — MedTourEasy</h3>
-      <p class="meta">Dec 2024</p>
-      <ul>
-        <li>Completed 4‑week traineeship analyzing chemical components.</li>
-        <li>Delivered structured reporting using spreadsheets.</li>
-      </ul>
-    </div>
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="card">
+        <h3>Core Competencies</h3>
+        <div class="skills-container">
+          <span class="skill-tag">Financial Trading</span>
+          <span class="skill-tag">Market Analysis</span>
+          <span class="skill-tag">Web Development</span>
+          <span class="skill-tag">Business Strategy</span>
+          <span class="skill-tag">Startup Development</span>
+          <span class="skill-tag">E-commerce</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h3>Technical Skills</h3>
+        <div class="skills-container">
+          <span class="skill-tag">HTML/CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Financial Modeling</span>
+          <span class="skill-tag">Data Analysis</span>
+        </div>
+      </div>
+    </section>
 
-  </div>
-</section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="card">
+        <h3>Interactive Resume Website</h3>
+        <p>Developed a personal portfolio website showcasing skills, education, and projects with responsive design.</p>
+        <ul>
+          <li>Built with HTML5, CSS3, and JavaScript</li>
+          <li>Mobile-responsive design</li>
+          <li>Interactive elements for better user engagement</li>
+        </ul>
+      </div>
+      
+      <div class="card">
+        <h3>Meesho Consultancy Project</h3>
+        <p>Consulted for Meesho (Indian social commerce platform) to optimize their seller onboarding process.</p>
+        <ul>
+          <li>Analyzed existing seller acquisition funnel</li>
+          <li>Proposed improvements to increase conversion rates</li>
+          <li>Developed training materials for new sellers</li>
+        </ul>
+      </div>
+    </section>
 
-<!-- PROJECTS -->
-<section class="section fade-in">
-  <h2>Projects</h2>
+    <section id="startup">
+      <h2>Startup Ventures</h2>
+      <div class="card">
+        <h3>Merchant Trading Company</h3>
+        <p>Founded a trading company specializing in commodity markets with focus on strategic investments.</p>
+        <ul>
+          <li>Developed proprietary trading strategies</li>
+          <li>Managed portfolio risk and returns</li>
+          <li>Consistently achieved above-market returns</li>
+        </ul>
+      </div>
+      
+      <div class="card">
+        <h3>Online Imitation Jewelry Store</h3>
+        <p>Launched and scaled an e-commerce business specializing in fashion jewelry.</p>
+        <ul>
+          <li>Managed end-to-end operations from sourcing to customer delivery</li>
+          <li>Implemented digital marketing strategies that increased sales by 200%</li>
+          <li>Built supplier network across multiple regions</li>
+        </ul>
+      </div>
+    </section>
+    
+    <section id="contact">
+      <h2>Get In Touch</h2>
+      <div class="card">
+        <p>I'm always interested in hearing about new opportunities, collaborations, or just chatting about startups and finance.</p>
+        <p>Feel free to reach out!</p>
+        <div class="social-links">
+          <a href="mailto:debayan.roy24@iimb.ac.in" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/debayan-roy-252556231" title="LinkedIn" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com" title="Twitter" target="_blank" rel="noreferrer"><i class="fab fa-twitter"></i></a>
+          <a href="https://github.com" title="GitHub" target="_blank" rel="noreferrer"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <ul>
-    <li><a href="https://www.grameengreenbox.in/" target="_blank">Grameen GreenBox Website</a></li>
-    <li><a href="https://davidthedopeboy.github.io/MERCHANT.TRADINGCOMPANY/" target="_blank">Merchant Trading Company Website</a></li>
-    <li><a href="https://davidthedopeboy.github.io/Resume.Debayan/" target="_blank">Resume / Portfolio Website</a></li>
-  </ul>
-</section>
+  <footer>
+    <p>© <span id="year"></span> Debayan Roy. All rights reserved.</p>
+    <p id="datetime"></p>
+  </footer>
 
-<!-- EDUCATION -->
-<section class="section fade-in">
-  <h2>Education</h2>
-  <p><strong>IIM Bangalore</strong> — BBA (Digital Business & Entrepreneurship)<br>
-     2024 – 2027 · CGPA: 8.7</p>
-
-  <p><strong>Lord Buddha Public School, Kota</strong> — Class XII (PCB) · 2023 · 65.5%</p>
-  <p><strong>Thakurnagar High School</strong> — Class X · 2021 · 83.85%</p>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section class="section fade-in">
-  <h2>Certifications</h2>
-  <ul>
-    <li>McKinsey Forward Program — Graduate</li>
-    <li>Traineeship Certificate — MedTourEasy (Dec 2024)</li>
-  </ul>
-</section>
-
-<!-- CONTACT -->
-<footer id="contact" class="fade-in">
-  <h2>Let’s connect</h2>
-
-  <div class="socials">
-    <a href="https://in.linkedin.com/in/debayan-roy-252556231" target="_blank">LinkedIn</a>
-    <a href="https://davidthedopeboy.github.io/Resume.Debayan/" target="_blank">Portfolio</a>
-    <a href="https://www.grameengreenbox.in/" target="_blank">Website</a>
-    <a href="mailto:verifiedroy@gmail.com">Email</a>
-  </div>
-
-  <p class="copy">© 2026 Debayan Roy</p>
-</footer>
-
-<script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Update copyright year
+      document.getElementById("year").textContent = new Date().getFullYear();
+      
+      // Update last modified date
+      document.getElementById("datetime").textContent = `Last Updated: ${new Date().toLocaleString()}`;
+      
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
